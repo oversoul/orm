@@ -66,7 +66,6 @@ class Model {
 
 	public function hydrate($data)
 	{
-		return $data;
-		return new $this( $data );
+		return (new Mapper( $data ))->map();
 	}
 }

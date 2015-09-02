@@ -2,24 +2,25 @@
 set_exception_handler(function($e) {
 	die($e->getMessage());
 });
+require 'Mapper.php';
 require 'Db.php';
 require 'Model.php';
 
 // this is a testing file.
-class Post extends Model{
+class Posts extends Model{
 
 	protected $table = 'posts';
 	protected $properties = array('id', 'title', 'slug', 'content', 'users_id');
-	//protected $belongsTo = ['User'];
+	// protected $belongsTo = ['Users'];
 }
 
-class User extends Model {
+class Users extends Model {
 
 	protected $table = 'users';
 	protected $properties = array('id', 'username', 'email');
 
 }
 
-$post = new Post;
+$post = new Posts;
 
 var_dump($post->all());
