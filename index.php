@@ -11,16 +11,23 @@ class Posts extends Model{
 
 	protected $table = 'posts';
 	protected $properties = array('id', 'title', 'slug', 'content', 'users_id');
-	// protected $belongsTo = ['Users'];
+	protected $belongsTo = ['Users'];
 }
 
 class Users extends Model {
 
 	protected $table = 'users';
 	protected $properties = array('id', 'username', 'email');
+	protected $hasOne = ['Profiles'];
 
 }
 
-$post = new Posts;
+class Profiles extends Model {
 
-var_dump($post->all());
+	protected $table = 'profiles';
+	protected $properties = ['id', 'users_id'];
+}
+
+$post = new Users;
+
+var_dump($post->one());
